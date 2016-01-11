@@ -17,6 +17,7 @@
  */
 
 #include "tfif.h"
+#include <odp/helper/tcp.h>
 
 proc_result_t tfif_input(odp_packet_t pkt,void* args) ODP_HOT_CODE;
 
