@@ -9,6 +9,8 @@ LFLAGS=-lodp -lodphelper
 
 lwstack += src/lwstack/iif.o
 lwstack += src/lwstack/portif.o
+lwstack += src/lwstack/tfif.o
+lwstack += src/lwstack/pkt_info.o
 
 
 test:
