@@ -30,3 +30,8 @@
 
 # Debug files
 *.dSYM/
+
+
+# Program files
+run
+odp_prog
