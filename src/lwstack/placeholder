@@ -1,0 +1,14 @@
+
+# Vision ;^)
+
+iif $goodguys 192.0.2.0/24
+iif $rfc1918 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8
+iif $spammers
+
+portif $allowed 80 119
+
+chain eth0 > src $rfc1918 $spammers : block
+chain eth0 > src $goodguys : pass
+chain eth0 > dest $allowed : pass
+chain eth0 > type tcp flags syn=1,ack=0 : block
+
