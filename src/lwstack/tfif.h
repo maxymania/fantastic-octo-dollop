@@ -19,7 +19,6 @@
 #pragma once
 
 #include "pipeline.h"
-#include <odp/helper/tcp.h>
 
 /*
  * tfif.h:
