@@ -7,8 +7,11 @@ iif $spammers
 
 portif $allowed 80 119
 
+tfif $SYN syn=1 ack=0
+
 chain eth0 > src $rfc1918 $spammers : block
 chain eth0 > src $goodguys : pass
 chain eth0 > dest $allowed : pass
-chain eth0 > type tcp flags syn=1,ack=0 : block
+chain eth0 > $SYN : block
+
 
