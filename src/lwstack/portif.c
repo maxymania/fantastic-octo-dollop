@@ -48,15 +48,12 @@ proc_result_t portif_input(odp_packet_t pkt,void* args){
 	result.packet_handle = pkt;
 	result.next_action = NA_DROP;
 	if(!odp_likely(odp_packet_has_tcp(pkt)||odp_packet_has_udp(pkt)||odp_packet_has_sctp(pkt) ))
-		goto NO_PORT;
+		return result;
 	
 	if(portif_filter(info->src_port,filter->src)&&
 		portif_filter(info->dst_port,filter->dst))
 			result.next_action = NA_CONTINUE;
 	
-	return result;
-	NO_PORT:
-	result.next_action = NA_DROP;
 	return result;
 }
 
