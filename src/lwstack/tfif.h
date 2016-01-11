@@ -25,15 +25,13 @@
  * TCP Flags Input Filter
  */
 
-typedef unsigned int bit;
-
 /*
  * (odph_tcphdr_t*)->doffset_flags;
  */
 struct TCPAll{
 	uint16be_t mask;
 	uint16be_t data;
-}
+};
 
 /* args must be `struct TCPAll' */
 proc_result_t tfif_input(odp_packet_t pkt,void* args);

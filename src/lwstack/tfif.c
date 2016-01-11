@@ -19,12 +19,12 @@
 #include "tfif.h"
 #include <odp/helper/tcp.h>
 
-proc_result_t tfif_input(odp_packet_t pkt,void* args) ODP_HOT_CODE;
+//proc_result_t tfif_input(odp_packet_t pkt,void* args) ODP_HOT_CODE;
 
 proc_result_t tfif_input(odp_packet_t pkt,void* args){
 	proc_result_t result;
 	struct TCPAll filter = *((struct TCPAll*)args);
-	odph_tcphdr_t* hdr = odp_packet_l3_ptr(pkt);
+	odph_tcphdr_t* hdr = odp_packet_l3_ptr(pkt,NULL);
 	result.packet_handle = pkt;
 	result.next_action = ((hdr->doffset_flags&filter.mask)==filter.data)?NA_CONTINUE:NA_DROP;
 	return result;
