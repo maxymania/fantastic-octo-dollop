@@ -7,6 +7,9 @@ GCC=gcc
 CFLAGS=-L$(DPDK)/lib -I$(DPDK)/include
 LFLAGS=-lodp -lodphelper
 
+lwstack += src/lwstack/iif.o
+lwstack += src/lwstack/portif.o
+
 
 test:
 	echo $(CFLAGS)
